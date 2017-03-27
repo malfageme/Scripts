@@ -1,0 +1,19 @@
+For registering the new script it is necessary to create a new file on the directory
+
+   .local/share/applications/
+
+for example:
+
+   .local/share/applications/capture_unl.desktop
+
+and then register the new mime-type with:
+
+    $ xdg-mime default capture_unl.desktop x-scheme-handler/capture
+
+Lets not forget to check that the script have execution permit enabled or we will obtain this not very insightful message:
+
+    $ xdg-open capture:172.16.132.129/vunl_12_3gvfs-open: capture:172.16.132.129/vunl_12_3: error opening location: The specified location is not supported
+
+One detail is that the script will open a xterm asking for the password of the root user on the VM. The default password is "unl". We can configure the login process with a public key so it is not necessary to enter this pass every time we want to run a capture, but I prefer this way just in case I select a wrong link. At least I can cancel before mi laptop launches another wireshark.
+
+
